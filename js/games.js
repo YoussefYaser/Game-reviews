@@ -54,13 +54,20 @@ export class Game {
                         </div>
                     </div>`;
         }
-
-        window.scrollBy(0, 1)
+        
+        
+        // window.scroll(0, 10);
+        Array.from(row.children).forEach((elem, i)=>{
+            if(window.scrollY > elem.offsetTop - window.innerHeight + 100){
+                elem.classList.replace('opacity-0', 'opacity-100');
+            }
+        });
             
         window.addEventListener('scroll', function(){
             Array.from(row.children).forEach((elem, i)=>{
-                if(this.scrollY > elem.offsetTop - this.innerHeight + 100)
-                    elem.classList.replace('opacity-0', 'opacity-100');
+                if(this.scrollY > elem.offsetTop - this.innerHeight + 100){
+                    elem.classList.replace('opacity-0', 'opacity-100');                    
+                }
             });
         });
 
